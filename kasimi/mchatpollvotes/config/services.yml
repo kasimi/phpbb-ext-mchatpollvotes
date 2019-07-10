@@ -1,0 +1,9 @@
+services:
+    kasimi.mchatpollvotes.listener:
+        class: 'kasimi\mchatpollvotes\event\main_listener'
+        arguments:
+            - '@language'
+            - '@?dmzx.mchat.notifications'
+            - '@?dmzx.mchat.settings'
+        tags:
+            - { name: 'event.listener' }
