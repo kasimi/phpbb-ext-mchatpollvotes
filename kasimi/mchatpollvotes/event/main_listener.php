@@ -45,11 +45,12 @@ class main_listener implements EventSubscriberInterface
 	public static function getSubscribedEvents()
 	{
 		return [
-			'core.user_setup'						=> 'user_setup',
-			'core.viewtopic_modify_poll_ajax_data'	=> 'viewtopic_modify_poll_ajax_data',
-			'dmzx.mchat.insert_posting_before'		=> 'mchat_insert_posting_before',
-			'dmzx.mchat.ucp_modify_template_data'	=> 'mchat_ucp_modify_template_data',
-			'dmzx.mchat.global_settings_modify'		=> 'mchat_global_settings_modify',
+			'core.user_setup'							=> 'user_setup',
+			'core.viewtopic_modify_poll_ajax_data'		=> 'viewtopic_modify_poll_ajax_data',
+			'dmzx.mchat.insert_posting_before'			=> 'mchat_insert_posting_before',
+			'dmzx.mchat.process_notifications_before'	=> 'mchat_process_notifications_before',
+			'dmzx.mchat.ucp_modify_template_data'		=> 'mchat_ucp_modify_template_data',
+			'dmzx.mchat.global_settings_modify'			=> 'mchat_global_settings_modify',
 		];
 	}
 
@@ -89,6 +90,16 @@ class main_listener implements EventSubscriberInterface
 		{
 			$event['is_mode_enabled'] = true;
 		}
+	}
+
+	/**
+	 * @param data $event
+	 */
+	public function mchat_process_notifications_before(data $event)
+	{
+		$event['notification_lang'] = array_merge($event['notification_lang'], [
+			'MCHAT_NEW_VOTE',
+		]);
 	}
 
 	/**
