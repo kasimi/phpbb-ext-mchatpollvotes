@@ -3,8 +3,8 @@
     "type": "phpbb-extension",
     "description": "Adds a notification message to mChat when a user casts a vote in a poll.",
     "homepage": "https://kasimi.net",
-    "version": "1.0.1",
-    "time": "2019-08-25",
+    "version": "1.0.2",
+    "time": "2023-02-16",
     "keywords": ["mchat", "addon", "notification", "poll", "vote"],
     "license": "GPL-2.0-only",
     "authors": [
